@@ -1,0 +1,25 @@
+<html>
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script type="text/javascript">
+
+      	$( document ).ready(function() {
+		    setInterval(function(){
+				$.getJSON( "/api/", function( data ) {
+					$("#valuediv").text(data[0].value);
+				});
+			}, 1000);
+		});
+
+      </script>
+    </head>
+    
+    <body>
+        <h2>Light Sensor Reading: <span id = "valuediv">{{ value }}</span></h2>
+
+	    <form  action="/" method="post">
+	 		<p><input type="submit" name="submit" value="Turn On"> </p>
+	  		<p><input type="submit" name="submit" value="Turn Off"> </p>
+	    </form>
+    </body>
+</html>
